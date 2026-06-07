@@ -311,8 +311,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     const cardWidth = card.offsetWidth;
+    const cardHeight = card.offsetHeight || 480;
     const x = cardWidth + 10;
-    const y = 100 + Math.random() * 80; // Voa no centro do frame
+    const y = (cardHeight * 0.25) + Math.random() * (cardHeight * 0.2); // Voa no centro do frame dinamicamente
     
     tick.style.left = `${x}px`;
     tick.style.top = `${y}px`;
@@ -342,7 +343,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (!bug.targetApproached && !isHunting && !isJumping) {
-        const triggerX = cardWidth / 2 - 20;
+        const mascotRect = mascot.getBoundingClientRect();
+        const cardRect = card.getBoundingClientRect();
+        const triggerX = (mascotRect.left - cardRect.left) + (mascotRect.width * 0.5);
         
         if (bug.x <= triggerX + 30 && bug.x >= triggerX - 30) {
           bug.targetApproached = true;

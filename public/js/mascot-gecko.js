@@ -310,7 +310,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Posições relativas ao card
     const side = Math.random() < 0.5 ? -30 : card.offsetWidth + 10;
     let x = side;
-    let y = 120 + Math.random() * 120; // Ajustado para voar no centro do frame
+    const cardHeight = card.offsetHeight || 480;
+    let y = (cardHeight * 0.3) + Math.random() * (cardHeight * 0.3); // Ajustado dinamicamente para o centro do frame
     
     bug.style.left = `${x}px`;
     bug.style.top = `${y}px`;
@@ -344,8 +345,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (bug.isTarget && !bug.targetApproached && !isHunting) {
-        const targetX = cardWidth / 2 - 95;
-        const targetY = 30 + Math.sin(time * 0.005) * 10; // Ajustado Y da boca interna
+        const mascotRect = mascot.getBoundingClientRect();
+        const cardRect = card.getBoundingClientRect();
+        const scaleX = mascotRect.width / 260;
+        const scaleY = mascotRect.height / 180;
+        const targetX = (mascotRect.left - cardRect.left) + 35 * scaleX;
+        const targetY = (mascotRect.top - cardRect.top) + 93 * scaleY + Math.sin(time * 0.005) * 10;
         
         const dx = targetX - bug.x;
         const dy = targetY - bug.y;
@@ -364,10 +369,11 @@ document.addEventListener('DOMContentLoaded', () => {
         bug.y += Math.sin(bug.angle) * bug.speed + Math.sin(time * bug.wobbleSpeed) * 0.5;
         
         // Limites do card
+        const cardHeight2 = card.offsetHeight || 480;
         if (bug.x < -40) bug.x = cardWidth + 20;
         if (bug.x > cardWidth + 40) bug.x = -20;
-        if (bug.y < 20) bug.y = 280;
-        if (bug.y > 320) bug.y = 30;
+        if (bug.y < 10) bug.y = cardHeight2 - 25;
+        if (bug.y > cardHeight2 - 15) bug.y = 15;
       }
 
       bug.element.style.left = `${bug.x}px`;
