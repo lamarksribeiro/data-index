@@ -10,7 +10,7 @@
   /* Cores Temáticas dos Sistemas (Mais vivas para contornos) */
   --c-gecko: #a855f7;       /* Violeta */
   --c-runner: #f97316;      /* Laranja */
-  --c-robot: #10b981;       /* Verde */
+  --c-robot: #facc15;       /* Amarelo Cyber */
 
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
@@ -138,7 +138,7 @@ html, body {
 }
 
 .portal-frame--robot::before {
-  background: radial-gradient(circle at 50% 30%, rgba(16, 185, 129, 0.15) 0%, transparent 65%);
+  background: radial-gradient(circle at 50% 30%, rgba(250, 204, 21, 0.15) 0%, transparent 65%);
 }
 
 /* Iluminação extra no Hover */
@@ -165,7 +165,7 @@ html, body {
 }
 
 .portal-frame--robot::after {
-  background: radial-gradient(circle at 50% 30%, rgba(16, 185, 129, 0.28) 0%, transparent 75%);
+  background: radial-gradient(circle at 50% 30%, rgba(250, 204, 21, 0.28) 0%, transparent 75%);
 }
 
 /* Borda com cor translúcida temática e glow sutil por padrão */
@@ -184,10 +184,10 @@ html, body {
 }
 
 .portal-frame--robot {
-  border: 1.5px solid rgba(16, 185, 129, 0.28);
+  border: 1px solid rgba(250, 204, 21, 0.28);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4),
-              0 0 15px rgba(16, 185, 129, 0.05),
-              inset 0 0 10px rgba(16, 185, 129, 0.04);
+              0 0 15px rgba(250, 204, 21, 0.05),
+              inset 0 0 10px rgba(250, 204, 21, 0.04);
 }
 
 /* Mascot Container interno do Quadro */
@@ -227,7 +227,7 @@ html, body {
 }
 
 .portal-frame--robot .portal-frame__title {
-  color: rgba(16, 185, 129, 0.6);
+  color: rgba(250, 204, 21, 0.65);
 }
 
 /* Hovers dos Quadros (Elevação e Glow) */
@@ -267,14 +267,14 @@ html, body {
 }
 
 .portal-frame--robot:hover {
-  border-color: rgba(16, 185, 129, 0.85);
+  border-color: rgba(250, 204, 21, 0.85);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 
-              0 0 25px rgba(16, 185, 129, 0.25),
-              inset 0 0 15px rgba(16, 185, 129, 0.12);
+              0 0 25px rgba(250, 204, 21, 0.25),
+              inset 0 0 15px rgba(250, 204, 21, 0.12);
 }
 .portal-frame--robot:hover .portal-frame__title {
   color: #f8fafc;
-  text-shadow: 0 0 12px rgba(16, 185, 129, 0.8);
+  text-shadow: 0 0 12px rgba(250, 204, 21, 0.8);
 }
 
 /* Partículas internas contidas no card */

@@ -166,14 +166,14 @@ document.addEventListener('DOMContentLoaded', () => {
     <svg id="mascot-robot" width="260" height="180" viewBox="0 0 260 180" style="overflow: visible;">
       <defs>
         <linearGradient id="cobreGradRobot" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#f97316" />
-          <stop offset="60%" stop-color="#ea580c" />
-          <stop offset="100%" stop-color="#9a3412" />
+          <stop offset="0%" stop-color="#94a3b8" />
+          <stop offset="60%" stop-color="#475569" />
+          <stop offset="100%" stop-color="#1e293b" />
         </linearGradient>
 
         <linearGradient id="darkGradRobot" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#374151" />
-          <stop offset="100%" stop-color="#111827" />
+          <stop offset="0%" stop-color="#334155" />
+          <stop offset="100%" stop-color="#0f172a" />
         </linearGradient>
 
         <linearGradient id="cremeGradRobot" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -186,14 +186,14 @@ document.addEventListener('DOMContentLoaded', () => {
           <stop offset="100%" stop-color="#047857" />
         </linearGradient>
 
-        <linearGradient id="neonOrangeRobot" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#f97316" />
-          <stop offset="100%" stop-color="#ea580c" />
+        <linearGradient id="neonRedRobot" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#f43f5e" />
+          <stop offset="100%" stop-color="#be123c" />
         </linearGradient>
 
         <linearGradient id="visorGradRobot" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#06b6d4" />
-          <stop offset="100%" stop-color="#3b82f6" />
+          <stop offset="0%" stop-color="#facc15" />
+          <stop offset="100%" stop-color="#eab308" />
         </linearGradient>
 
         <filter id="neonGlowRobot" x="-30%" y="-30%" width="160%" height="160%">
@@ -207,16 +207,16 @@ document.addEventListener('DOMContentLoaded', () => {
         <!-- Pernas e Patas Estáticas -->
         <g id="legs-robot">
           <!-- Patas Traseiras (Dobrada na base) -->
-          <ellipse cx="144" cy="132" rx="14" ry="10" fill="url(#cobreGradRobot)" stroke="#7c2d12" stroke-width="1.2" style="transform: rotate(-10deg); transform-origin: 144px 132px;" />
-          <ellipse cx="148" cy="142" rx="8" ry="2.5" fill="url(#cobreGradRobot)" stroke="#7c2d12" stroke-width="1.2" />
+          <ellipse cx="144" cy="132" rx="14" ry="10" fill="url(#cobreGradRobot)" stroke="#1e293b" stroke-width="1.2" style="transform: rotate(-10deg); transform-origin: 144px 132px;" />
+          <ellipse cx="148" cy="142" rx="8" ry="2.5" fill="url(#cobreGradRobot)" stroke="#1e293b" stroke-width="1.2" />
           
           <!-- Pata Dianteira Esquerda (Atrás) -->
-          <path d="M 106,120 L 102,142" fill="none" stroke="#7c2d12" stroke-width="5" stroke-linecap="round" opacity="0.6" />
-          <ellipse cx="102" cy="142" rx="4" ry="2" fill="#7c2d12" opacity="0.6" />
+          <path d="M 106,120 L 102,142" fill="none" stroke="#1e293b" stroke-width="5" stroke-linecap="round" opacity="0.6" />
+          <ellipse cx="102" cy="142" rx="4" ry="2" fill="#1e293b" opacity="0.6" />
 
           <!-- Pata Dianteira Direita (Frente) -->
           <path d="M 116,118 L 112,142" fill="none" stroke="url(#cobreGradRobot)" stroke-width="5.5" stroke-linecap="round" />
-          <ellipse cx="112" cy="142" rx="4.5" ry="2.2" fill="url(#cobreGradRobot)" stroke="#7c2d12" stroke-width="0.8" />
+          <ellipse cx="112" cy="142" rx="4.5" ry="2.2" fill="url(#cobreGradRobot)" stroke="#1e293b" stroke-width="0.8" />
         </g>
 
         <!-- Grupo Superior (Sofre Respiração e Rotação) -->
@@ -224,16 +224,16 @@ document.addEventListener('DOMContentLoaded', () => {
           
           <!-- Cauda de Raposa horizontal e peluda, com ponta branca (Sem parecer esquilo) -->
           <g id="fox-tail-robot" style="transform-origin: 154px 128px;">
-            <!-- Base e meio da cauda (Laranja) -->
-            <path d="M 152,126 Q 190,118 212,130 L 206,142 Q 180,144 154,136 Z" fill="url(#cobreGradRobot)" stroke="#7c2d12" stroke-width="1.5" stroke-linejoin="round" />
+            <!-- Base e meio da cauda (Prata) -->
+            <path d="M 152,126 Q 190,118 212,130 L 206,142 Q 180,144 154,136 Z" fill="url(#cobreGradRobot)" stroke="#1e293b" stroke-width="1.5" stroke-linejoin="round" />
             <!-- Faceta Superior da Cauda (Elemento Neon/Creme Dinâmico) -->
-            <path id="tail-facet-top-robot" d="M 190,118 Q 201,124 212,130 L 206,142 Q 195,133 190,118" fill="url(#cremeGradRobot)" opacity="0.15" stroke="#7c2d12" stroke-width="0.8" />
+            <path id="tail-facet-top-robot" d="M 190,118 Q 201,124 212,130 L 206,142 Q 195,133 190,118" fill="url(#cremeGradRobot)" opacity="0.15" stroke="#1e293b" stroke-width="0.8" />
             <!-- Ponta da cauda (Creme/Branca) -->
             <path id="tail-facet-bottom-robot" d="M 212,130 Q 228,124 240,135 Q 223,146 206,142 Z" fill="url(#cremeGradRobot)" stroke="#cbd5e1" stroke-width="1.5" stroke-linejoin="round" />
           </g>
 
           <!-- Corpo Principal Simples Low-Poly -->
-          <polygon id="fox-body-robot" points="104,115 130,96 164,110 156,142 114,142 94,120" fill="url(#cobreGradRobot)" stroke="#7c2d12" stroke-width="1.5" stroke-linejoin="round" />
+          <polygon id="fox-body-robot" points="104,115 130,96 164,110 156,142 114,142 94,120" fill="url(#cobreGradRobot)" stroke="#1e293b" stroke-width="1.5" stroke-linejoin="round" />
           
           <!-- Facetas Geométricas do corpo para estilo premium -->
           <polygon points="104,115 130,96 148,106 122,124" fill="#ffffff" opacity="0.08" />
@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <!-- Cabeça da Raposa de Perfil (Voltada para a esquerda) -->
           <g id="fox-head-robot" style="transform-origin: 124px 85px;">
             <!-- Face Superior, Focinho e Bochechas -->
-            <polygon points="126,86 116,56 86,60 62,80 50,88 72,96 102,96 126,90" fill="url(#cobreGradRobot)" stroke="#7c2d12" stroke-width="1.5" stroke-linejoin="round" />
+            <polygon points="126,86 116,56 86,60 62,80 50,88 72,96 102,96 126,90" fill="url(#cobreGradRobot)" stroke="#1e293b" stroke-width="1.5" stroke-linejoin="round" />
             
             <!-- Facetas Geométricas da cabeça -->
             <polygon points="116,56 86,60 62,80 88,76" fill="#ffffff" opacity="0.08" />
@@ -258,18 +258,18 @@ document.addEventListener('DOMContentLoaded', () => {
             <circle cx="50" cy="88" r="2.8" fill="#111827" />
 
             <!-- Orelha Esquerda (Traseira) -->
-            <polygon id="ear-left-robot" points="94,58 76,22 88,18 100,50" fill="#7c2d12" opacity="0.7" />
+            <polygon id="ear-left-robot" points="94,58 76,22 88,18 100,50" fill="#1e293b" opacity="0.7" />
 
             <!-- Orelha Direita (Dianteira) -->
             <g id="ear-right-group-robot">
-              <polygon id="ear-right-robot" points="112,56 94,14 108,8 120,46" fill="url(#cobreGradRobot)" stroke="#7c2d12" stroke-width="1.5" stroke-linejoin="round" />
+              <polygon id="ear-right-robot" points="112,56 94,14 108,8 120,46" fill="url(#cobreGradRobot)" stroke="#1e293b" stroke-width="1.5" stroke-linejoin="round" />
               <polygon points="100,20 106,15 110,32" id="ear-led-robot" fill="url(#visorGradRobot)" opacity="0.75" />
             </g>
 
             <!-- Olhos Normais de Cartoon (Padrão Gecko/Runner) -->
-            <ellipse cx="65" cy="74" rx="4.5" ry="7.5" fill="#ffffff" stroke="#7c2d12" stroke-width="1.2" />
-            <ellipse cx="73.5" cy="73" rx="4.5" ry="7.5" fill="#ffffff" stroke="#7c2d12" stroke-width="1.2" />
-
+            <ellipse cx="65" cy="74" rx="4.5" ry="7.5" fill="#ffffff" stroke="#1e293b" stroke-width="1.2" />
+            <ellipse cx="73.5" cy="73" rx="4.5" ry="7.5" fill="#ffffff" stroke="#1e293b" stroke-width="1.2" />
+ 
             <!-- Pupilas que reagem ao mouse -->
             <g id="fox-pupil-robot" style="transition: transform 0.12s ease-out;">
               <ellipse cx="65.5" cy="74.5" rx="1.8" ry="3.0" fill="#000000" />
@@ -279,7 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </g>
 
             <!-- Boca Fofa -->
-            <path d="M 50,90 Q 55,92 60,90" fill="none" stroke="#7c2d12" stroke-width="1.2" stroke-linecap="round" />
+            <path d="M 50,90 Q 55,92 60,90" fill="none" stroke="#1e293b" stroke-width="1.2" stroke-linecap="round" />
           </g>
         </g>
       </g>
@@ -338,7 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (foxPupil) {
         foxPupil.style.transform = `translate(${Math.cos(angle) * offset}px, ${Math.sin(angle) * offset}px)`;
         if (Math.random() < 0.25) {
-          tailFacetTop.setAttribute('fill', Math.random() < 0.5 ? 'url(#neonGreenRobot)' : 'url(#neonOrangeRobot)');
+          tailFacetTop.setAttribute('fill', Math.random() < 0.5 ? 'url(#neonGreenRobot)' : 'url(#neonRedRobot)');
         }
       }
     }, 1200 + Math.random() * 1200);
@@ -466,8 +466,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const foxEl = document.getElementById('fox-robot');
     if (!foxEl) return;
     
-    earLed.setAttribute('fill', 'url(#neonOrangeRobot)');
-    tailFacetTop.setAttribute('fill', 'url(#neonOrangeRobot)');
+    earLed.setAttribute('fill', 'url(#neonRedRobot)');
+    tailFacetTop.setAttribute('fill', 'url(#neonRedRobot)');
     
     foxEl.classList.add('fox-deflecting');
     
@@ -567,7 +567,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     let count = 0;
     const interval = setInterval(() => {
-      const activeColor = count % 2 === 0 ? '#10b981' : '#f97316';
+      const activeColor = count % 2 === 0 ? '#10b981' : '#f43f5e';
       earLed.setAttribute('fill', activeColor);
       tailFacetTop.setAttribute('fill', activeColor);
       count++;
@@ -582,7 +582,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const scaleY = rect.height / 180;
     const centerGlobalX = rect.left - card.getBoundingClientRect().left + 130 * scaleX;
     const centerGlobalY = rect.top - card.getBoundingClientRect().top + 120 * scaleY;
-    createSparkExplosion(centerGlobalX, centerGlobalY, '#06b6d4');
+    createSparkExplosion(centerGlobalX, centerGlobalY, '#facc15');
     
     setTimeout(() => {
       foxUpperEl.classList.remove('fox-boosting');
