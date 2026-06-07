@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <!-- Gradiente Dourado Metálico Plano -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" /> <!-- Ouro Claro -->
+      <stop offset="50%" stop-color="#fbbf24" /> <!-- Dourado Brilhante -->
+      <stop offset="100%" stop-color="#d97706" /> <!-- Ouro Escuro -->
+    </linearGradient>
+  </defs>
+
+  <!-- Fundo Circular Escuro com Borda Dourada para Alto Contraste em Qualquer Aba -->
+  <circle cx="50" cy="50" r="46" fill="#090d16" stroke="url(#goldGrad)" stroke-width="4.5" />
+  
+  <!-- Lente Estilizada Minimalista (Anel de Ouro e Núcleo) -->
+  <circle cx="50" cy="50" r="30" fill="none" stroke="url(#goldGrad)" stroke-width="6.5" />
+  <circle cx="50" cy="50" r="14" fill="url(#goldGrad)" />
+  
+  <!-- Brilho de Reflexo de Vidro em Arco (Legibilidade Máxima) -->
+  <path d="M 27,34 C 33,26 45,21 57,23" fill="none" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" opacity="0.85" />
+</svg>

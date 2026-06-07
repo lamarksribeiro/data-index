@@ -1,5 +1,5 @@
 /**
- * Mascote Interativo - Data Fox (Portal version)
+ * Mascote Interativo - Cyber Monkey (Portal version)
  * Adaptado para rodar no portal de entrada GoldenLens.
  */
 
@@ -28,88 +28,88 @@ document.addEventListener('DOMContentLoaded', () => {
       cursor: pointer;
     }
 
-    /* Respiração da Raposa */
-    @keyframes foxBreathing {
+    /* Respiração do Macaco (balanço sutil pendurado pelas mãos) */
+    @keyframes monkeyBreathingPortal {
       0%, 100% { transform: translateY(0px) scaleY(1); }
-      50% { transform: translateY(-2.5px) scaleY(0.98); }
+      50% { transform: translateY(-3px) scaleY(0.97) rotate(0.5deg); }
     }
     
-    #fox-upper-robot {
-      animation: foxBreathing 4.5s ease-in-out infinite;
-      transform-origin: 130px 145px;
+    #monkey-upper {
+      animation: monkeyBreathingPortal 4.8s ease-in-out infinite;
+      transform-origin: 130px 142px;
     }
 
-    /* Cauda */
-    @keyframes tailWiggleFox {
+    /* Cauda balançando suavemente */
+    @keyframes tailWiggleMonkeyPortal {
       0%, 100% { transform: rotate(0deg) translateY(0); }
-      50% { transform: rotate(-3deg) translateY(-1.5px); }
+      50% { transform: rotate(-5deg) translateY(-2px); }
     }
-    #fox-tail-robot {
-      animation: tailWiggleFox 5s ease-in-out infinite;
-      transform-origin: 168px 125px;
+    #monkey-tail {
+      animation: tailWiggleMonkeyPortal 4.5s ease-in-out infinite;
+      transform-origin: 138px 125px;
       transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    /* Orelhas */
-    @keyframes earMoveRight {
+    /* Orelhas mexendo sutilmente */
+    @keyframes earMoveRightMonkeyPortal {
       0%, 90%, 100% { transform: rotate(0deg); }
-      93%, 97% { transform: rotate(-2deg); }
+      93%, 97% { transform: rotate(-3deg); }
     }
-    @keyframes earMoveLeft {
+    @keyframes earMoveLeftMonkeyPortal {
       0%, 88%, 100% { transform: rotate(0deg); }
       91%, 95% { transform: rotate(3deg); }
     }
-    #ear-right-robot {
-      animation: earMoveRight 6s ease-in-out infinite;
-      transform-origin: 115px 56px;
+    #ear-right-group {
+      animation: earMoveRightMonkeyPortal 6.5s ease-in-out infinite;
+      transform-origin: 168px 68px;
     }
-    #ear-left-robot {
-      animation: earMoveLeft 6s ease-in-out infinite;
-      transform-origin: 98px 58px;
-    }
-
-    /* Mordida */
-    @keyframes foxBite {
-      0% { transform: translate(0px, 0px) rotate(0deg); }
-      15% { transform: translate(-8px, -4px) rotate(-4deg); }
-      30% { transform: translate(-28px, 12px) rotate(8deg); }
-      45% { transform: translate(-30px, 14px) rotate(8deg) scaleY(1.02); }
-      75% { transform: translate(4px, -2px) rotate(-2deg); }
-      100% { transform: translate(0px, 0px) rotate(0deg); }
-    }
-    .fox-biting {
-      animation: foxBite 0.52s cubic-bezier(0.25, 1, 0.5, 1) !important;
-      animation-fill-mode: forwards;
+    #ear-left-group {
+      animation: earMoveLeftMonkeyPortal 6.5s ease-in-out infinite;
+      transform-origin: 92px 68px;
     }
 
-    /* Chicotada com a Cauda */
-    @keyframes tailDeflect {
+    /* Captura com a cauda (BUY) */
+    @keyframes tailCatchMonkeyPortal {
       0% { transform: rotate(0deg); }
-      20% { transform: rotate(12deg) scale(0.95); }
-      45% { transform: rotate(-28deg) translate(-15px, -8px) scale(1.05); }
-      75% { transform: rotate(4deg) translate(2px, 1px); }
+      25% { transform: rotate(35deg) scale(1.1); }
+      50% { transform: rotate(-55deg) translate(25px, -20px) scale(1.2); }
+      75% { transform: rotate(10deg); }
       100% { transform: rotate(0deg); }
     }
-    .fox-deflecting #fox-tail-robot {
+    .monkey-catching #monkey-tail {
       animation: none !important;
-      animation: tailDeflect 0.55s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      animation: tailCatchMonkeyPortal 0.58s cubic-bezier(0.16, 1, 0.3, 1) !important;
       animation-fill-mode: forwards;
     }
 
-    /* BOOST */
-    @keyframes foxBoostAnimation {
-      0% { transform: scale(1) rotate(0deg); }
-      25% { transform: scale(0.92) translateY(5px) rotate(-6deg); }
-      55% { transform: scale(1.1) translateY(-14px) rotate(10deg); }
-      80% { transform: scale(0.97) translateY(1px) rotate(-2deg); }
-      100% { transform: scale(1) rotate(0deg); }
+    /* Defesa / Chicotada com a cauda (SELL) */
+    @keyframes tailDeflectMonkeyPortal {
+      0% { transform: rotate(0deg); }
+      30% { transform: rotate(-25deg) scale(0.9); }
+      50% { transform: rotate(45deg) translate(-10px, 15px) scale(1.1); }
+      75% { transform: rotate(-10deg); }
+      100% { transform: rotate(0deg); }
     }
-    .fox-boosting {
-      animation: foxBoostAnimation 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    .monkey-deflecting #monkey-tail {
+      animation: none !important;
+      animation: tailDeflectMonkeyPortal 0.55s cubic-bezier(0.16, 1, 0.3, 1) !important;
       animation-fill-mode: forwards;
     }
 
-    /* Candlesticks */
+    /* Animação de Escalada Acrobática / BOOST */
+    @keyframes monkeyClimbPortal {
+      0% { transform: scale(1) translateY(0) rotate(0deg); }
+      20% { transform: scale(0.95) translateY(10px) rotate(-5deg); }
+      50% { transform: scale(1.08) translateY(-90px) rotate(360deg); }
+      80% { transform: scale(0.97) translateY(5px) rotate(-2deg); }
+      100% { transform: scale(1) translateY(0) rotate(0deg); }
+    }
+    .monkey-climbing {
+      animation: monkeyClimbPortal 0.72s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+      animation-fill-mode: forwards;
+    }
+
+    /* Candlesticks contidos no Card do Robot */
     #link-robot .data-candle {
       position: absolute;
       pointer-events: none;
@@ -165,122 +165,118 @@ document.addEventListener('DOMContentLoaded', () => {
   mascotContainer.innerHTML = `
     <svg id="mascot-robot" width="260" height="180" viewBox="0 0 260 180" style="overflow: visible;">
       <defs>
-        <linearGradient id="cobreGradRobot" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#94a3b8" />
-          <stop offset="60%" stop-color="#475569" />
-          <stop offset="100%" stop-color="#1e293b" />
+        <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#cbd5e1" />
+          <stop offset="50%" stop-color="#64748b" />
+          <stop offset="100%" stop-color="#334155" />
         </linearGradient>
 
-        <linearGradient id="darkGradRobot" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#334155" />
+        <linearGradient id="darkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#475569" />
           <stop offset="100%" stop-color="#0f172a" />
         </linearGradient>
 
-        <linearGradient id="cremeGradRobot" x1="0%" y1="0%" x2="0%" y2="100%">
+        <linearGradient id="cremeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
           <stop offset="0%" stop-color="#f8fafc" />
           <stop offset="100%" stop-color="#cbd5e1" />
         </linearGradient>
 
-        <linearGradient id="neonGreenRobot" x1="0%" y1="0%" x2="100%" y2="100%">
+        <!-- Gradiente Neon Verde de Lucro -->
+        <linearGradient id="neonProfit" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#34d399" />
+          <stop offset="100%" stop-color="#059669" />
+        </linearGradient>
+
+        <!-- Gradiente Verde Padrão do Visor -->
+        <linearGradient id="visorGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#34d399" />
+          <stop offset="100%" stop-color="#10b981" />
+        </linearGradient>
+
+        <!-- Gradiente Neon Verde para Colisão BUY -->
+        <linearGradient id="neonGreen" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stop-color="#10b981" />
           <stop offset="100%" stop-color="#047857" />
         </linearGradient>
 
-        <linearGradient id="neonRedRobot" x1="0%" y1="0%" x2="100%" y2="100%">
+        <!-- Gradiente Neon Vermelho para Colisão SELL -->
+        <linearGradient id="neonRed" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stop-color="#f43f5e" />
           <stop offset="100%" stop-color="#be123c" />
         </linearGradient>
 
-        <linearGradient id="visorGradRobot" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#facc15" />
-          <stop offset="100%" stop-color="#eab308" />
-        </linearGradient>
-
-        <filter id="neonGlowRobot" x="-30%" y="-30%" width="160%" height="160%">
-          <feGaussianBlur stdDeviation="2.2" result="blur" />
+        <filter id="neonGlow" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur stdDeviation="2.5" result="blur" />
           <feComposite in="SourceGraphic" in2="blur" operator="over" />
         </filter>
-      </defs>      <g id="fox-robot" style="transform-origin: 130px 145px;">
-        <!-- Sombra de contato -->
-        <ellipse cx="130" cy="142" rx="48" ry="3.5" fill="#000000" opacity="0.45" />
+      </defs>
 
-        <!-- Pernas e Patas Estáticas -->
-        <g id="legs-robot">
-          <!-- Patas Traseiras (Dobrada na base) -->
-          <ellipse cx="144" cy="132" rx="14" ry="10" fill="url(#cobreGradRobot)" stroke="#1e293b" stroke-width="1.2" style="transform: rotate(-10deg); transform-origin: 144px 132px;" />
-          <ellipse cx="148" cy="142" rx="8" ry="2.5" fill="url(#cobreGradRobot)" stroke="#1e293b" stroke-width="1.2" />
+      <!-- Grupo Principal do Macaco -->
+      <g id="monkey" style="transform-origin: 130px 142px;">
+        <ellipse cx="130" cy="142" rx="42" ry="3" fill="#000000" opacity="0.5" />
+
+        <!-- Grupo Superior (Respiração e Ações) -->
+        <g id="monkey-upper">
           
-          <!-- Pata Dianteira Esquerda (Atrás) -->
-          <path d="M 106,120 L 102,142" fill="none" stroke="#1e293b" stroke-width="5" stroke-linecap="round" opacity="0.6" />
-          <ellipse cx="102" cy="142" rx="4" ry="2" fill="#1e293b" opacity="0.6" />
-
-          <!-- Pata Dianteira Direita (Frente) -->
-          <path d="M 116,118 L 112,142" fill="none" stroke="url(#cobreGradRobot)" stroke-width="5.5" stroke-linecap="round" />
-          <ellipse cx="112" cy="142" rx="4.5" ry="2.2" fill="url(#cobreGradRobot)" stroke="#1e293b" stroke-width="0.8" />
-        </g>
-
-        <!-- Grupo Superior (Sofre Respiração e Rotação) -->
-        <g id="fox-upper-robot">
-          
-          <!-- Cauda de Raposa horizontal e peluda, com ponta branca (Sem parecer esquilo) -->
-          <g id="fox-tail-robot" style="transform-origin: 154px 128px;">
-            <!-- Base e meio da cauda (Prata) -->
-            <path d="M 152,126 Q 190,118 212,130 L 206,142 Q 180,144 154,136 Z" fill="url(#cobreGradRobot)" stroke="#1e293b" stroke-width="1.5" stroke-linejoin="round" />
-            <!-- Faceta Superior da Cauda (Elemento Neon/Creme Dinâmico) -->
-            <path id="tail-facet-top-robot" d="M 190,118 Q 201,124 212,130 L 206,142 Q 195,133 190,118" fill="url(#cremeGradRobot)" opacity="0.15" stroke="#1e293b" stroke-width="0.8" />
-            <!-- Ponta da cauda (Creme/Branca) -->
-            <path id="tail-facet-bottom-robot" d="M 212,130 Q 228,124 240,135 Q 223,146 206,142 Z" fill="url(#cremeGradRobot)" stroke="#cbd5e1" stroke-width="1.5" stroke-linejoin="round" />
+          <!-- Cauda Preênsil Longa (Lado Direito) -->
+          <g id="monkey-tail">
+            <path d="M 138,124 Q 165,135 185,115 T 210,85 T 225,100" fill="none" stroke="url(#metalGrad)" stroke-width="6.2" stroke-linecap="round" />
+            <circle id="tail-led" cx="225" cy="100" r="5.5" fill="url(#visorGrad)" stroke="#047857" stroke-width="1" filter="url(#neonGlow)" />
           </g>
 
-          <!-- Corpo Principal Simples Low-Poly -->
-          <polygon id="fox-body-robot" points="104,115 130,96 164,110 156,142 114,142 94,120" fill="url(#cobreGradRobot)" stroke="#1e293b" stroke-width="1.5" stroke-linejoin="round" />
-          
-          <!-- Facetas Geométricas do corpo para estilo premium -->
-          <polygon points="104,115 130,96 148,106 122,124" fill="#ffffff" opacity="0.08" />
-          <polygon points="122,124 148,106 164,110 156,142 134,142" fill="#000000" opacity="0.12" />
-
-          <!-- Peito Creme Fofo -->
-          <polygon points="104,115 130,96 126,138 114,142" fill="url(#cremeGradRobot)" stroke="#cbd5e1" stroke-width="1.2" stroke-linejoin="round" />
-
-          <!-- Cabeça da Raposa de Perfil (Voltada para a esquerda) -->
-          <g id="fox-head-robot" style="transform-origin: 124px 85px;">
-            <!-- Face Superior, Focinho e Bochechas -->
-            <polygon points="126,86 116,56 86,60 62,80 50,88 72,96 102,96 126,90" fill="url(#cobreGradRobot)" stroke="#1e293b" stroke-width="1.5" stroke-linejoin="round" />
-            
-            <!-- Facetas Geométricas da cabeça -->
-            <polygon points="116,56 86,60 62,80 88,76" fill="#ffffff" opacity="0.08" />
-            
-            <!-- Bochecha Creme -->
-            <polygon points="62,80 50,88 72,96 86,96" fill="url(#cremeGradRobot)" stroke="#cbd5e1" stroke-width="1" stroke-linejoin="round" />
-            <polygon points="72,96 86,96 102,96 88,86" fill="#000000" opacity="0.1" />
-
-            <!-- Nariz Preto Fofo -->
-            <circle cx="50" cy="88" r="2.8" fill="#111827" />
-
-            <!-- Orelha Esquerda (Traseira) -->
-            <polygon id="ear-left-robot" points="94,58 76,22 88,18 100,50" fill="#1e293b" opacity="0.7" />
-
-            <!-- Orelha Direita (Dianteira) -->
-            <g id="ear-right-group-robot">
-              <polygon id="ear-right-robot" points="112,56 94,14 108,8 120,46" fill="url(#cobreGradRobot)" stroke="#1e293b" stroke-width="1.5" stroke-linejoin="round" />
-              <polygon points="100,20 106,15 110,32" id="ear-led-robot" fill="url(#visorGradRobot)" opacity="0.75" />
-            </g>
-
-            <!-- Olhos Normais de Cartoon (Padrão Gecko/Runner) -->
-            <ellipse cx="65" cy="74" rx="4.5" ry="7.5" fill="#ffffff" stroke="#1e293b" stroke-width="1.2" />
-            <ellipse cx="73.5" cy="73" rx="4.5" ry="7.5" fill="#ffffff" stroke="#1e293b" stroke-width="1.2" />
- 
-            <!-- Pupilas que reagem ao mouse -->
-            <g id="fox-pupil-robot" style="transition: transform 0.12s ease-out;">
-              <ellipse cx="65.5" cy="74.5" rx="1.8" ry="3.0" fill="#000000" />
-              <circle cx="64.9" cy="73.3" r="0.6" fill="#ffffff" />
-              <ellipse cx="74.0" cy="73.5" rx="1.8" ry="3.0" fill="#000000" />
-              <circle cx="73.4" cy="72.3" r="0.6" fill="#ffffff" />
-            </g>
-
-            <!-- Boca Fofa -->
-            <path d="M 50,90 Q 55,92 60,90" fill="none" stroke="#1e293b" stroke-width="1.2" stroke-linecap="round" />
+          <!-- Pernas Mecânicas Dobradas -->
+          <g id="monkey-legs">
+            <path d="M 118,126 L 108,142 Q 102,148 112,148" fill="none" stroke="url(#metalGrad)" stroke-width="5.5" stroke-linecap="round" />
+            <path d="M 142,126 L 152,142 Q 158,148 148,148" fill="none" stroke="url(#metalGrad)" stroke-width="5.5" stroke-linecap="round" />
           </g>
+
+          <!-- Corpo/Tronco Geométrico -->
+          <polygon id="monkey-body" points="112,94 148,94 140,128 120,128" fill="url(#metalGrad)" stroke="#1e293b" stroke-width="1.5" stroke-linejoin="round" />
+          <polygon points="118,98 142,98 136,122 124,122" fill="url(#cremeGrad)" opacity="0.18" stroke="#cbd5e1" stroke-width="0.8" />
+
+          <!-- Cabeça do Macaco -->
+          <g id="monkey-head" style="transform-origin: 130px 72px;">
+            <g id="ear-left-group">
+              <circle cx="92" cy="68" r="16" fill="url(#metalGrad)" stroke="#1e293b" stroke-width="1.5" />
+              <circle cx="92" cy="68" r="10" fill="url(#darkGrad)" />
+              <circle cx="92" cy="68" r="4.5" fill="url(#visorGrad)" filter="url(#neonGlow)" id="ear-led-left" />
+            </g>
+            <g id="ear-right-group">
+              <circle cx="168" cy="68" r="16" fill="url(#metalGrad)" stroke="#1e293b" stroke-width="1.5" />
+              <circle cx="168" cy="68" r="10" fill="url(#darkGrad)" />
+              <circle cx="168" cy="68" r="4.5" fill="url(#visorGrad)" filter="url(#neonGlow)" id="ear-led-right" />
+            </g>
+
+            <ellipse cx="130" cy="72" rx="28" ry="24" fill="url(#metalGrad)" stroke="#1e293b" stroke-width="1.5" />
+            <path d="M 112,78 Q 130,68 148,78 Q 152,90 130,94 Q 108,90 112,78 Z" fill="url(#cremeGrad)" stroke="#cbd5e1" stroke-width="1" />
+            <ellipse cx="130" cy="79" rx="3.5" ry="2.2" fill="#1e293b" />
+            <path d="M 124,84 Q 130,88 136,84" fill="none" stroke="#1e293b" stroke-width="1.2" stroke-linecap="round" />
+
+            <path id="monkey-visor-back" d="M 108,62 L 152,62 Q 156,76 150,78 L 110,78 Q 104,76 108,62 Z" fill="url(#visorGrad)" stroke="#047857" stroke-width="1.2" filter="url(#neonGlow)" />
+            <ellipse cx="120" cy="70" rx="4.5" ry="6.2" fill="#ffffff" />
+            <ellipse cx="140" cy="70" rx="4.5" ry="6.2" fill="#ffffff" />
+
+            <g id="monkey-pupil" style="transition: transform 0.12s ease-out;">
+              <circle cx="120" cy="70" r="2.2" fill="#000000" />
+              <circle cx="119.2" cy="69" r="0.7" fill="#ffffff" />
+              <circle cx="140" cy="70" r="2.2" fill="#000000" />
+              <circle cx="139.2" cy="69" r="0.7" fill="#ffffff" />
+            </g>
+          </g>
+
+          <!-- Braços Escaladores Longos (Apoiados no card) -->
+          <g id="monkey-arm-left" style="transform-origin: 112px 98px; transition: transform 0.32s ease;">
+            <line x1="112" y1="98" x2="88" y2="116" stroke="url(#metalGrad)" stroke-width="6.5" stroke-linecap="round" />
+            <line x1="88" y1="116" x2="92" y2="142" stroke="url(#metalGrad)" stroke-width="5.5" stroke-linecap="round" />
+            <ellipse cx="92" cy="142" rx="7.5" ry="4.5" fill="#1e293b" stroke="url(#visorGrad)" stroke-width="1" />
+          </g>
+          
+          <g id="monkey-arm-right" style="transform-origin: 148px 98px; transition: transform 0.32s ease;">
+            <line x1="148" y1="98" x2="172" y2="116" stroke="url(#metalGrad)" stroke-width="6.5" stroke-linecap="round" />
+            <line x1="172" y1="116" x2="168" y2="142" stroke="url(#metalGrad)" stroke-width="5.5" stroke-linecap="round" />
+            <ellipse cx="168" cy="142" rx="7.5" ry="4.5" fill="#1e293b" stroke="url(#visorGrad)" stroke-width="1" />
+          </g>
+
         </g>
       </g>
     </svg>
@@ -289,34 +285,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 3. Lógica Ocular e Varredura
   const mascot = document.getElementById('mascot-robot');
-  const foxPupil = document.getElementById('fox-pupil-robot');
-  const earLed = document.getElementById('ear-led-robot');
-  const tailFacetTop = document.getElementById('tail-facet-top-robot');
-  const tailFacetBottom = document.getElementById('tail-facet-bottom-robot');
+  const monkeyPupil = document.getElementById('monkey-pupil');
+  const earLedLeft = document.getElementById('ear-led-left');
+  const earLedRight = document.getElementById('ear-led-right');
+  const tailLed = document.getElementById('tail-led');
   
   let isHunting = false;
   let lastMouseMoveTime = Date.now();
   let idleEyeTimer = null;
 
   function updatePupil(targetX, targetY) {
-    if (!foxPupil || !mascot || isHunting) return;
+    if (!monkeyPupil || !mascot || isHunting) return;
     
     const rect = mascot.getBoundingClientRect();
     const scaleX = rect.width / 260;
     const scaleY = rect.height / 180;
     
-    const eyeCenterX = rect.left + 69 * scaleX;
-    const eyeCenterY = rect.top + 74 * scaleY;
+    const eyeCenterX = rect.left + 130 * scaleX;
+    const eyeCenterY = rect.top + 70 * scaleY;
     
     const dx = targetX - eyeCenterX;
     const dy = targetY - eyeCenterY;
     const distance = Math.hypot(dx, dy);
     
-    const maxOffset = 2.2;
+    const maxOffset = 2.4;
     const intensity = Math.min(distance / 200, 1);
     const angle = Math.atan2(dy, dx);
     
-    foxPupil.style.transform = `translate(${Math.cos(angle) * maxOffset * intensity}px, ${Math.sin(angle) * maxOffset * intensity}px)`;
+    monkeyPupil.style.transform = `translate(${Math.cos(angle) * maxOffset * intensity}px, ${Math.sin(angle) * maxOffset * intensity}px)`;
   }
 
   document.addEventListener('mousemove', (event) => {
@@ -333,15 +329,16 @@ document.addEventListener('DOMContentLoaded', () => {
     idleEyeTimer = setInterval(() => {
       if (Date.now() - lastMouseMoveTime < 3000 || isHunting) return;
       const angle = Math.random() * Math.PI * 2;
-      const offset = Math.random() * 2.2;
+      const offset = Math.random() * 2.4;
       
-      if (foxPupil) {
-        foxPupil.style.transform = `translate(${Math.cos(angle) * offset}px, ${Math.sin(angle) * offset}px)`;
+      if (monkeyPupil) {
+        monkeyPupil.style.transform = `translate(${Math.cos(angle) * offset}px, ${Math.sin(angle) * offset}px)`;
         if (Math.random() < 0.25) {
-          tailFacetTop.setAttribute('fill', Math.random() < 0.5 ? 'url(#neonGreenRobot)' : 'url(#neonRedRobot)');
+          const randColor = Math.random() < 0.5 ? 'url(#neonGreen)' : 'url(#neonRed)';
+          tailLed.setAttribute('fill', randColor);
         }
       }
-    }, 1200 + Math.random() * 1200);
+    }, 1300 + Math.random() * 1200);
   }
   
   setInterval(() => {
@@ -404,7 +401,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!candle.targetApproached && !isHunting) {
         const triggerX = cardWidth / 2 - 40;
         
-        if (candle.x <= triggerX + 30 && candle.x >= triggerX - 30) {
+        if (candle.x <= triggerX + 40 && candle.x >= triggerX - 20) {
           candle.targetApproached = true;
           if (candle.isGreen) {
             triggerBuyCapture(candle);
@@ -430,13 +427,14 @@ document.addEventListener('DOMContentLoaded', () => {
     isHunting = true;
     
     const candleEl = candleData.element;
-    const upperEl = document.getElementById('fox-upper-robot');
-    if (!upperEl) return;
+    const monkeyEl = document.getElementById('monkey');
+    if (!monkeyEl) return;
     
-    earLed.setAttribute('fill', 'url(#neonGreenRobot)');
-    tailFacetTop.setAttribute('fill', 'url(#neonGreenRobot)');
+    earLedLeft.setAttribute('fill', 'url(#neonGreen)');
+    earLedRight.setAttribute('fill', 'url(#neonGreen)');
+    tailLed.setAttribute('fill', 'url(#neonGreen)');
     
-    upperEl.classList.add('fox-biting');
+    monkeyEl.classList.add('monkey-catching');
     
     setTimeout(() => {
       candleEl.style.transform = 'scale(0)';
@@ -449,13 +447,15 @@ document.addEventListener('DOMContentLoaded', () => {
         candleEl.remove();
         activeCandles.delete(candleData);
       }, 100);
-    }, 200);
+    }, 240);
     
     setTimeout(() => {
-      upperEl.classList.remove('fox-biting');
+      monkeyEl.classList.remove('monkey-catching');
       isHunting = false;
-      earLed.setAttribute('fill', 'url(#visorGradRobot)');
-    }, 550);
+      earLedLeft.setAttribute('fill', 'url(#visorGrad)');
+      earLedRight.setAttribute('fill', 'url(#visorGrad)');
+      tailLed.setAttribute('fill', 'url(#visorGrad)');
+    }, 580);
   }
 
   function triggerSellDeflect(candleData) {
@@ -463,13 +463,14 @@ document.addEventListener('DOMContentLoaded', () => {
     isHunting = true;
     
     const candleEl = candleData.element;
-    const foxEl = document.getElementById('fox-robot');
-    if (!foxEl) return;
+    const monkeyEl = document.getElementById('monkey');
+    if (!monkeyEl) return;
     
-    earLed.setAttribute('fill', 'url(#neonRedRobot)');
-    tailFacetTop.setAttribute('fill', 'url(#neonRedRobot)');
+    earLedLeft.setAttribute('fill', 'url(#neonRed)');
+    earLedRight.setAttribute('fill', 'url(#neonRed)');
+    tailLed.setAttribute('fill', 'url(#neonRed)');
     
-    foxEl.classList.add('fox-deflecting');
+    monkeyEl.classList.add('monkey-deflecting');
     
     setTimeout(() => {
       createSparkExplosion(candleData.x + 6, candleData.y + 10, '#f43f5e');
@@ -482,13 +483,15 @@ document.addEventListener('DOMContentLoaded', () => {
         candleEl.remove();
         activeCandles.delete(candleData);
       }, 150);
-    }, 240);
+    }, 220);
     
     setTimeout(() => {
-      foxEl.classList.remove('fox-deflecting');
+      monkeyEl.classList.remove('monkey-deflecting');
       isHunting = false;
-      earLed.setAttribute('fill', 'url(#visorGradRobot)');
-    }, 580);
+      earLedLeft.setAttribute('fill', 'url(#visorGrad)');
+      earLedRight.setAttribute('fill', 'url(#visorGrad)');
+      tailLed.setAttribute('fill', 'url(#visorGrad)');
+    }, 550);
   }
 
   function createSparkExplosion(centerX, centerY, color) {
@@ -560,20 +563,23 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isHunting) return;
     isHunting = true;
     
-    const foxUpperEl = document.getElementById('fox-upper-robot');
-    if (!foxUpperEl) return;
+    const monkeyUpperEl = document.getElementById('monkey-upper');
+    if (!monkeyUpperEl) return;
     
-    foxUpperEl.classList.add('fox-boosting');
+    monkeyUpperEl.classList.add('monkey-climbing');
     
     let count = 0;
     const interval = setInterval(() => {
-      const activeColor = count % 2 === 0 ? '#10b981' : '#f43f5e';
-      earLed.setAttribute('fill', activeColor);
-      tailFacetTop.setAttribute('fill', activeColor);
+      const activeColor = count % 2 === 0 ? '#34d399' : '#059669';
+      earLedLeft.setAttribute('fill', activeColor);
+      earLedRight.setAttribute('fill', activeColor);
+      tailLed.setAttribute('fill', activeColor);
       count++;
       if (count >= 10) {
         clearInterval(interval);
-        earLed.setAttribute('fill', 'url(#visorGradRobot)');
+        earLedLeft.setAttribute('fill', 'url(#visorGrad)');
+        earLedRight.setAttribute('fill', 'url(#visorGrad)');
+        tailLed.setAttribute('fill', 'url(#visorGrad)');
       }
     }, 70);
     
@@ -581,13 +587,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const scaleX = rect.width / 260;
     const scaleY = rect.height / 180;
     const centerGlobalX = rect.left - card.getBoundingClientRect().left + 130 * scaleX;
-    const centerGlobalY = rect.top - card.getBoundingClientRect().top + 120 * scaleY;
-    createSparkExplosion(centerGlobalX, centerGlobalY, '#facc15');
+    const centerGlobalY = rect.top - card.getBoundingClientRect().top + 72 * scaleY;
+    createSparkExplosion(centerGlobalX, centerGlobalY, '#10b981');
     
     setTimeout(() => {
-      foxUpperEl.classList.remove('fox-boosting');
+      monkeyUpperEl.classList.remove('monkey-climbing');
       isHunting = false;
-    }, 650);
+    }, 720);
   }
 
   mascotContainer.addEventListener('click', triggerBoost);
