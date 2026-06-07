@@ -1,0 +1,321 @@
+:root {
+  --bg-0: #04070f;
+  --bg-1: rgba(255, 255, 255, 0.015);
+  
+  --text-0: #ffffff;
+  --text-1: #f8fafc;
+  --text-2: #94a3b8;
+  --text-3: #334155;
+
+  /* Cores Temáticas dos Sistemas (Mais vivas para contornos) */
+  --c-gecko: #a855f7;       /* Violeta */
+  --c-runner: #f97316;      /* Laranja */
+  --c-robot: #10b981;       /* Verde */
+
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-0);
+  font-family: var(--font-sans);
+  color: var(--text-1);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Canvas de Partículas do Background */
+#particles-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Wrapper Geral */
+.portal-container {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  padding: 80px 24px;
+}
+
+/* Cabeçalho Minimalista */
+.portal-header {
+  text-align: center;
+  max-width: 500px;
+}
+
+.portal-title {
+  margin: 0;
+  font-size: clamp(32px, 5vw, 44px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--text-0);
+  line-height: 1.1;
+}
+
+.portal-description {
+  margin: 10px 0 0 0;
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.5;
+  opacity: 0.6;
+}
+
+/* Grid de Quadros Verticais */
+.portal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 320px);
+  gap: 48px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto 0;
+  padding: 40px 0;
+}
+
+/* Estilo do Quadro (Frame) */
+.portal-frame {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 320px;
+  height: 480px;
+  background: var(--bg-1);
+  border-radius: 16px;
+  padding: 40px 24px;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  text-decoration: none;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+/* Iluminação interna constante (luz de fundo sutil vinda do mascote) */
+.portal-frame::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.55;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portal-frame--gecko::before {
+  background: radial-gradient(circle at 50% 30%, rgba(168, 85, 247, 0.15) 0%, transparent 65%);
+}
+
+.portal-frame--runner::before {
+  background: radial-gradient(circle at 50% 30%, rgba(249, 115, 22, 0.15) 0%, transparent 65%);
+}
+
+.portal-frame--robot::before {
+  background: radial-gradient(circle at 50% 30%, rgba(16, 185, 129, 0.15) 0%, transparent 65%);
+}
+
+/* Iluminação extra no Hover */
+.portal-frame::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portal-frame--gecko::after {
+  background: radial-gradient(circle at 50% 30%, rgba(168, 85, 247, 0.28) 0%, transparent 75%);
+}
+
+.portal-frame--runner::after {
+  background: radial-gradient(circle at 50% 30%, rgba(249, 115, 22, 0.28) 0%, transparent 75%);
+}
+
+.portal-frame--robot::after {
+  background: radial-gradient(circle at 50% 30%, rgba(16, 185, 129, 0.28) 0%, transparent 75%);
+}
+
+/* Borda com cor translúcida temática e glow sutil por padrão */
+.portal-frame--gecko {
+  border: 1.5px solid rgba(168, 85, 247, 0.28);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4),
+              0 0 15px rgba(168, 85, 247, 0.05),
+              inset 0 0 10px rgba(168, 85, 247, 0.04);
+}
+
+.portal-frame--runner {
+  border: 1.5px solid rgba(249, 115, 22, 0.28);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4),
+              0 0 15px rgba(249, 115, 22, 0.05),
+              inset 0 0 10px rgba(249, 115, 22, 0.04);
+}
+
+.portal-frame--robot {
+  border: 1.5px solid rgba(16, 185, 129, 0.28);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4),
+              0 0 15px rgba(16, 185, 129, 0.05),
+              inset 0 0 10px rgba(16, 185, 129, 0.04);
+}
+
+/* Mascot Container interno do Quadro */
+.portal-frame__mascot-wrapper {
+  position: absolute;
+  top: 75px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 320px;
+  height: 220px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.portal-frame__mascot-wrapper svg {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Título na Base do Quadro (com cores correspondentes suaves em repouso) */
+.portal-frame__title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10;
+}
+
+.portal-frame--gecko .portal-frame__title {
+  color: rgba(168, 85, 247, 0.6);
+}
+
+.portal-frame--runner .portal-frame__title {
+  color: rgba(249, 115, 22, 0.6);
+}
+
+.portal-frame--robot .portal-frame__title {
+  color: rgba(16, 185, 129, 0.6);
+}
+
+/* Hovers dos Quadros (Elevação e Glow) */
+.portal-frame:hover {
+  transform: translateY(-6px);
+}
+
+.portal-frame:hover::before {
+  opacity: 0.8;
+}
+
+.portal-frame:hover::after {
+  opacity: 1;
+}
+
+/* Hovers específicos com brilho correspondente do contorno */
+.portal-frame--gecko:hover {
+  border-color: rgba(168, 85, 247, 0.85);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 
+              0 0 25px rgba(168, 85, 247, 0.25),
+              inset 0 0 15px rgba(168, 85, 247, 0.12);
+}
+.portal-frame--gecko:hover .portal-frame__title {
+  color: #f8fafc;
+  text-shadow: 0 0 12px rgba(168, 85, 247, 0.8);
+}
+
+.portal-frame--runner:hover {
+  border-color: rgba(249, 115, 22, 0.85);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 
+              0 0 25px rgba(249, 115, 22, 0.25),
+              inset 0 0 15px rgba(249, 115, 22, 0.12);
+}
+.portal-frame--runner:hover .portal-frame__title {
+  color: #f8fafc;
+  text-shadow: 0 0 12px rgba(249, 115, 22, 0.8);
+}
+
+.portal-frame--robot:hover {
+  border-color: rgba(16, 185, 129, 0.85);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 
+              0 0 25px rgba(16, 185, 129, 0.25),
+              inset 0 0 15px rgba(16, 185, 129, 0.12);
+}
+.portal-frame--robot:hover .portal-frame__title {
+  color: #f8fafc;
+  text-shadow: 0 0 12px rgba(16, 185, 129, 0.8);
+}
+
+/* Partículas internas contidas no card */
+.portal-frame .data-bug, .portal-frame .data-candle {
+  pointer-events: none;
+}
+
+/* Rodapé */
+.portal-footer {
+  text-align: center;
+  font-size: 11.5px;
+  color: var(--text-3);
+}
+
+.portal-footer a {
+  color: var(--text-2);
+  text-decoration: none;
+  transition: color 0.2s;
+  opacity: 0.6;
+}
+
+.portal-footer a:hover {
+  color: var(--text-0);
+  opacity: 1;
+}
+
+/* Responsividade */
+@media (max-width: 1100px) {
+  .portal-grid {
+    grid-template-columns: repeat(2, 320px);
+    gap: 36px;
+  }
+}
+
+@media (max-width: 720px) {
+  .portal-container {
+    padding: 40px 16px;
+  }
+  .portal-grid {
+    grid-template-columns: 320px;
+    gap: 36px;
+    padding-top: 20px;
+  }
+}

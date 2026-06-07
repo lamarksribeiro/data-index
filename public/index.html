@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GoldenLens Portal</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Portal de sistemas do ecossistema GoldenLens Data. Acesso integrado ao coletor, backtest e trading algorítmico.">
+  <meta name="author" content="GoldenLens">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,15 15,85 85,85' fill='%236366f1'/%3E%3C/svg%3E">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles.css">
+
+  <!-- Scripts dos Mascotes Interativos -->
+  <script src="/js/mascot-gecko.js" defer></script>
+  <script src="/js/mascot-runner.js" defer></script>
+  <script src="/js/mascot-robot.js" defer></script>
+  
+  <!-- App Script principal -->
+  <script src="/js/app.js" defer></script>
+</head>
+<body>
+  <!-- Canvas de Partículas do Background -->
+  <canvas id="particles-canvas"></canvas>
+
+  <div class="portal-container">
+    <!-- Grid de Quadros Verticais -->
+    <main class="portal-grid">
+      <!-- Quadro 1: Data Gecko -->
+      <a href="#" class="portal-frame portal-frame--gecko" id="link-gecko" target="_blank" rel="noopener noreferrer">
+        <div class="portal-frame__mascot-wrapper" id="mascot-gecko-anchor"></div>
+        <h2 class="portal-frame__title">Data Gecko</h2>
+      </a>
+
+      <!-- Quadro 2: Data Backtest -->
+      <a href="#" class="portal-frame portal-frame--runner" id="link-runner" target="_blank" rel="noopener noreferrer">
+        <div class="portal-frame__mascot-wrapper" id="mascot-runner-anchor"></div>
+        <h2 class="portal-frame__title">Data Backtest</h2>
+      </a>
+
+      <!-- Quadro 3: Data Robot -->
+      <a href="#" class="portal-frame portal-frame--robot" id="link-robot" target="_blank" rel="noopener noreferrer">
+        <div class="portal-frame__mascot-wrapper" id="mascot-robot-anchor"></div>
+        <h2 class="portal-frame__title">Data Robot</h2>
+      </a>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="portal-footer">
+      <p>© 2026 GoldenLens Data · <a href="https://fracta.online" target="_blank">fracta.online</a></p>
+    </footer>
+  </div>
+</body>
+</html>
