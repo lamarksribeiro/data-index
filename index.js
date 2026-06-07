@@ -15,6 +15,10 @@ const config = {
 // Servir a pasta estática "public"
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.get('/healthz', (req, res) => {
+  res.status(200).json({ ok: true, service: 'data-index' });
+});
+
 // API Endpoint para que o front-end descubra as URLs corretas de redirecionamento
 app.get('/api/config', (req, res) => {
   res.json(config);
