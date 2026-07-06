@@ -1,0 +1,18 @@
+---
+description: data-index — portal fracta.online
+globs: "**/*"
+alwaysApply: false
+---
+
+# data-index
+
+Portal estático leve (Express). Entry: `index.js`. Produção: fracta.online (Coolify auto-deploy).
+
+## Comandos
+
+`npm install`, `npm run dev` / `npm start`.
+
+## Gotchas
+
+- App de **links/landing** para o ecossistema — não mover lógica de backtest ou coleta para cá.
+- Assets atrás do Cloudflare: ao mudar CSS/JS/favicon, bump `?v=` no HTML (ver `fracta-deploy` na raiz do monorepo).
