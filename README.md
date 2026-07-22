@@ -26,15 +26,15 @@ Oferecer um único ponto de partida para escolher e abrir o sistema certo, sem m
 |---|---|---|---|
 | **data-colector** (Data Gecko) | Coleta, persiste e expõe ticks e order book da Polymarket | `3000` | `../data-colector` |
 | **data-backtest** (Data Runner) | Lakehouse OLAP, sync incremental, Backtest Studio e estratégias GLS | `3100` | `../data-backtest` |
-| **data-robot** | Robô de trading real na Polygon (em preparação) | a definir | `../data-robot` |
+| **data-robot** | Robô de trading real (UI + CLI no Coolify Giovanna; engine contínua ainda não é produção autônoma) | `3200` | `../data-robot` |
 
 Em desenvolvimento local, os links da landing page devem apontar para:
 
 - Coletor: `http://localhost:3000`
 - Backtest: `http://localhost:3100`
-- Robot: URL configurável via variável de ambiente (serviço ainda em migração a partir de `polymarket-robot`)
+- Robot: `http://localhost:3200` (ou `DATA_ROBOT_URL`)
 
-Em produção (Coolify), as URLs serão injetadas por ambiente — por exemplo `DATA_COLLECTOR_URL`, `DATA_BACKTEST_URL` e `DATA_ROBOT_URL`.
+Em produção (Coolify), as URLs são injetadas por ambiente — por exemplo `DATA_COLLECTOR_URL`, `DATA_BACKTEST_URL` e `DATA_ROBOT_URL=https://robot.fracta.online`.
 
 ## Escopo deste repositório
 
